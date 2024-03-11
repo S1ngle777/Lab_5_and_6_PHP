@@ -11,8 +11,8 @@
 2) Запустите веб-сервер: php -S localhost:8080.
 3) Откройте браузер и перейдите по адресу http://localhost:8080 для доступа к первому заданию.
 4) Перейдите по адресу http://localhost:8080/task2.php для доступа ко второму заданию.
-5) Перейдите по адресу http://localhost:8080/task3.php для доступа к третьему и четвёртому заданию.
-6) Перейдите по адресу http://localhost:8080/task4.php для доступа к домашнему заданию.
+5) Перейдите по адресу http://localhost:8080/task3.php для доступа к третьему заданию.
+6) Перейдите по адресу http://localhost:8080/task4.php для доступа к четвёртому заданию.
 
 ## Задания
 __1. Запись и чтение из файла__
@@ -138,18 +138,102 @@ password (пароль).
 
 ## Примеры использования
 
-__Задание 1.__
+__1. Запись и чтение из файла__
+
+2. Объясните, зачем необходимо закрывать файл fclose()
+    * Освобождение ресурсов
+    * Безопасность данных
+    * Сохранение изменений
+4. Добавьте в файл с помощью функции fwrite() ещё 3 записи
+
+```php
+fwrite($file, "6. Richard Davis, 1993, 1234567890123\n");
+fwrite($file, "7. Charles Miller, 1994, 2345678901234\n");
+fwrite($file, "8. Joseph Wilson, 1995, 3456789012345\n");
+```
+
+![image](https://github.com/S1ngle777/Lab_5_and_6_PHP/assets/128795707/e570a0d9-9be0-434e-8c14-dc128a084d8c)
 
 
+__2. Запись в файл с помощью функции file_get_contents()__
 
-__Задание 2.__
+1. В задании №1 замените функцию fwrite на file_put_contents()
+```php
+<?php
+//создание файла
+$file = "file2.txt";
+//Вводим данные в файл
+file_put_contents($file, "1. William Smith, 1990, 2344455666677\n", FILE_APPEND);
+file_put_contents($file, "2. John Doe, 1988, 4445556666787\n", FILE_APPEND);
+file_put_contents($file, "3. Michael Brown, 1991, 7748956996777\n", FILE_APPEND);
+file_put_contents($file, "4. David Johnson, 1987, 5556667779999\n", FILE_APPEND);
+file_put_contents($file, "5. Robert Jones, 1992, 99933456678888\n", FILE_APPEND);
+
+//Открываем файл для добавления данных
+if (!file_exists($file)) {
+    echo ("Не был найден файл для добавления данных!");
+} else {
+    file_put_contents($file, "6. Richard Davis, 1993, 1234567890123\n", FILE_APPEND);
+    file_put_contents($file, "7. Charles Miller, 1994, 2345678901234\n", FILE_APPEND);
+    file_put_contents($file, "8. Joseph Wilson, 1995, 3456789012345\n", FILE_APPEND);
+}
+
+//Открываем файл для чтения из него
+if (!file_exists($file)) {
+    echo ("Не был найден файл для чтения данных!");
+} else { ?>
+    <div>Данные из файла: </div>
+    <?php
+    $fileContents = file($file);
+    foreach ($fileContents as $line) {
+        echo $line; ?>
+        <br />
+<?php
+    }
+}
+```
+
+2. Чем отличается функция fwrite и file_put_contents?
+
+Функции `fwrite()` и `file_put_contents()` в PHP обе используются для записи данных в файл, но они имеют некоторые различия:
+
+1. __Простота использования:__ `file_put_contents()` является более простой функцией для записи данных в файл. Она автоматически открывает файл, записывает данные и закрывает файл. С другой стороны, `fwrite()` требует открытия файла с помощью `fopen()` перед записью и закрытия файла с помощью `fclose()` после записи.
+2. __Буферизация:__ `fwrite()` записывает данные в файл непосредственно, в то время как `file_put_contents()` сначала помещает данные в буфер, а затем записывает их в файл. Это может привести к различиям в производительности, особенно при работе с большими объемами данных.
+3. __Безопасность:__ `file_put_contents()` является более безопасной функцией, поскольку она автоматически блокирует файл во время записи, предотвращая одновременное изменение файла другими процессами или потоками. С другой стороны, `fwrite()` не предоставляет такой блокировки по умолчанию.
 
 
+__3. Обработка форм и файлов__
 
-__Задание 3.__
+2. Добавьте код, чтобы данные с формы сохранялись в файл
+```php
+fwrite($file, $value . " ");
+```
+3. Добавьте еще 2 контроллера в форму и их верное сохранение в файл
+```html
+<div>
+    <label>Ваш возраст<input name="age" type="number" size="100"></label>
+</div>
+<br>
+<div>
+    <label>Ваш email: <input name="email" type="email" size="30"></label>
+</div>
+```
+```php
+'age' => $_POST['age'] ?? "",
+'email' => $_POST['email'] ?? ""
+```
 
-__Задание 4.__
+![image](https://github.com/S1ngle777/Lab_5_and_6_PHP/assets/128795707/3a896d13-f315-4635-b52d-8c56acd09435)
+
+
+__4. Регистрация и авторизация пользователей__
+
+![image](https://github.com/S1ngle777/Lab_5_and_6_PHP/assets/128795707/fc3e0cec-dcca-4d2d-aa68-9d7b815ebe2f)
+
+![image](https://github.com/S1ngle777/Lab_5_and_6_PHP/assets/128795707/067d19d2-9725-45b7-ac13-cc93ec34dadc)
+
 
 
 ## Список использованных источников
 
+https://www.php.net/manual/ru/function.file-put-contents.php
