@@ -1,17 +1,18 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <title>Login Form</title>
 </head>
+
 <body>
     <h2>Login Form</h2>
     <form method="POST">
         <label for="login">Login:</label>
         <input type="text" id="login" name="login" required><br><br>
-        
+
         <label for="password">Password:</label>
         <input type="password" id="password" name="password" required><br><br>
-        
         <input type="submit" value="Login">
     </form>
 
@@ -42,4 +43,5 @@
     }
     ?>
 </body>
+
 </html>
