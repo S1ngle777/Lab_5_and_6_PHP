@@ -237,3 +237,11 @@ __4. Регистрация и авторизация пользователей
 ## Список использованных источников
 
 https://www.php.net/manual/ru/function.file-put-contents.php
+
+https://www.php.net/manual/ru/function.md5
+
+https://www.php.net/manual/ru/function.http-response-code.php
+
+https://www.php.net/manual/ru/function.file
+
+https://www.php.net/manual/ru/function.header
