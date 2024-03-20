@@ -7,7 +7,7 @@
     - [Список использованных источников](#список-использованных-источников)
 
 ## Инструкции по запуску проекта
-1) Склонируйте репозиторий с проектом: git clone [https://github.com/S1ngle777/Lab_2_PHP.git](https://github.com/S1ngle777/Lab_2_PHP.git).
+1) Склонируйте репозиторий с проектом: git clone [https://github.com/S1ngle777/Lab_5_and_6_PHP.git](https://github.com/S1ngle777/Lab_5_and_6_PHP.git).
 2) Запустите веб-сервер: php -S localhost:8080.
 3) Откройте браузер и перейдите по адресу http://localhost:8080 для доступа к первому заданию.
 4) Перейдите по адресу http://localhost:8080/task2.php для доступа ко второму заданию.
